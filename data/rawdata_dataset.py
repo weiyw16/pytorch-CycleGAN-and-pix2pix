@@ -43,8 +43,10 @@ class rawdataDataset(Data.Dataset):
     def __getitem__(self, index):
         #img_name = torch.FloatTensor([[ self.frame["pic" + str(index)] ]])
         #img_name = Variable(torch.FloatTensor([[ self.frame["pic" + str(index)] ]])
-        A = torch.FloatTensor([[ self.frameA["A" + str(index)] ]])
-        B = torch.FloatTensor([[ self.frameB["B" + str(index)] ]])
+        A = self.frameA["A" + str(index + 1)] 
+        B = self.frameB["B" + str(index + 1)] 
+        #A = torch.FloatTensor([[ self.frameA["A" + str(index)] ]])
+        #B = torch.FloatTensor([[ self.frameB["B" + str(index)] ]])
         
         #AB_path = self.AB_paths[index]
         #AB = Image.open(AB_path).convert('RGB')
